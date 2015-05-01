@@ -1,3 +1,4 @@
+require('pry')
 class Word
   attr_reader :word, :definition
   @@word_def = []
@@ -8,8 +9,16 @@ class Word
     @id = @@word_def.length() + 1
   end
 
+  define_method(:word_plus_def) do
+    @word + ":" + " " + @definition
+  end
+
   define_method(:word) do
     @word
+  end
+
+  define_method(:definition) do
+    @definition
   end
 
   define_method(:definition) do

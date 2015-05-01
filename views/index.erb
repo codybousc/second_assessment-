@@ -1,10 +1,11 @@
 <h1> Dictionary-light </h1>
 
-<%= puts "#{Word.all}" %>
+
 <ul>
   <% @all_defs.each() do |words| %>
   <li><a href="/entire_list/<%= words.id() %>"><%= words.word() %></a></l>
     <% end %>
   </ul>
 
-<a href="/entire_list">See Word List</a>
+
+<a href="/entire_list/new">Add a new word!</a>
