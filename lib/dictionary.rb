@@ -11,19 +11,19 @@ class Word
     @word
   end
 
-  define_method(:definition)
+  define_method(:definition) do
     @definition
   end
 
-  define_method(:save)
+  define_method(:save) do
     @@word_def.push(self)
   end
 
-  define_singleton_method(:all)
+  define_singleton_method(:all) do
     @@word_def
   end
 
-  define_singleton_method(:clear)
+  define_singleton_method(:clear) do
     @@word_def = []
   end
 
