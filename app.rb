@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/dictionary')
+require('./lib/word_def')
 also_reload('lib/**/*.rb')
 require('pry')
 
@@ -14,14 +14,15 @@ get('/entire_list') do
   erb(:entire_list)
 end
 
+get("/entire_list/new") do
+  erb(:add_def_form)
+end
+
 get('/entire_list/:id') do
   @word = Word.find(params.fetch("id"))
   erb(:word)
 end
 
-get("/entire_list/new") do
-  erb(:add_def_form)
-end
 
 post('/entire_list') do
   word = params.fetch("word")

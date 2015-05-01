@@ -1,54 +1,33 @@
-require('pry')
-class Word
-  attr_reader :word, :definition
-  @@word_def = []
+class Dictionary
+  @@dictionaries = []
 
-  define_method(:initialize) do |attributes|
-    @word = attributes.fetch(:word)
-    @definition = attributes.fetch(:definition)
-    @id = @@word_def.length() + 1
+  define_method(:initialize) do |name|
+    @name = name
+    @word_def = []
   end
 
-  define_method(:word_plus_def) do
-    @word + ":" + " " + @definition
+  define_method(:name) do
+    @name
   end
 
-  define_method(:word) do
-    @word
-  end
-
-  define_method(:definition) do
-    @definition
-  end
-
-  define_method(:definition) do
-    @definition
-  end
-
-  define_method(:save) do
-    @@word_def.push(self)
+  define_method(:word_def) do
+    @word_def
   end
 
   define_singleton_method(:all) do
-    @@word_def
+    @@dictionaries
+  end
+
+  define_method(:save) do
+    @@dictionaries.push(self)
   end
 
   define_singleton_method(:clear) do
-    @@word_def = []
+    @@dictionaries = []
   end
 
-  define_method(:id) do
-    @id
-  end
-
-  define_singleton_method(:find) do |identification|
-    found_word = nil
-    @@word_def.each() do |word|
-      if word.id().eql?(identification.to_i())
-        found_word = word
-      end
-    end
-    found_word
+  define_method(:add_word_def) do |word|
+    @word_def.push(word)
   end
 
 end
