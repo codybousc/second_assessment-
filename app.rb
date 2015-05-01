@@ -18,6 +18,10 @@ get("/entire_list/new") do
 end
 
 post('/entire_list') do
+  word = params.fetch("word")
+  definition = params.fetch("definition")
+  new_word = Word.new({:word => word, :definition => definition})
+  new_word.save()
   erb(:success)
 end
 
