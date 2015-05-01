@@ -35,4 +35,13 @@ describe(Word) do
     end
   end
 
+  describe(".find") do
+    it("returns a word/def by its id number") do
+      test_def = Word.new({:word => "struggling", :definition => "strive to achieve"})
+      test_def.save
+      test_def2 = Word.new({:word => "confusion", :definition => "lack of understanding"})
+      test_def2.save
+      expect(Word.find(test_def.id())).to(eq(test_def))
+    end
+  end
 end
