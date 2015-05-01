@@ -7,3 +7,21 @@ get('/') do
   @all_defs = Word.all()
   erb(:index)
 end
+
+get('/entire_list') do
+  @all_defs = Word.all()
+  erb(:entire_list)
+end
+
+get("/entire_list/new") do
+  erb(:add_def_form)
+end
+
+post('/entire_list') do
+  erb(:success)
+end
+
+get("/entire_list/:id") do
+  @word = Word.find(params.fetch("id"))
+  erb(:entire_list)
+end
