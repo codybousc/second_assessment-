@@ -27,4 +27,12 @@ describe(Word) do
     end
   end
 
+  describe("#id") do
+    it("returns the id of each word/def pair") do
+      test_def = Word.new({:word => "struggling", :definition => "strive to achieve"})
+      test_def.save()
+      expect(test_def.id()).to(eq(1))
+    end
+  end
+
 end

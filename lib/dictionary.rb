@@ -5,6 +5,7 @@ class Word
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word)
     @definition = attributes.fetch(:definition)
+    @id = @@word_def.length() + 1
   end
 
   define_method(:word) do
@@ -25,6 +26,10 @@ class Word
 
   define_singleton_method(:clear) do
     @@word_def = []
+  end
+
+  define_method(:id) do
+    @id
   end
 
 end
