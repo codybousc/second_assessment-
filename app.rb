@@ -14,6 +14,11 @@ get('/entire_list') do
   erb(:entire_list)
 end
 
+get('/entire_list/:id') do
+  @word = Word.find(params.fetch("id"))
+  erb(:word)
+end
+
 get("/entire_list/new") do
   erb(:add_def_form)
 end
